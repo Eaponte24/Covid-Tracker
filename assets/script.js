@@ -14,6 +14,11 @@ fetch('https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02', opt
 
 
     // Reddit Api
+    
+
+var inputValue = 'Canada'
+var searchTerm = 'covid' + inputValue;
+
 $.ajax(
     "https://www.reddit.com/subreddits/search.json",
     {
