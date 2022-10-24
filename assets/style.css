@@ -1,6 +1,8 @@
-.column {
+.col-4,
+.col-8 {
     float: left;
-    width: 50%;
+    border: 1px solid blue;
+    height:100vh;
   }
   
   /* Clear floats after the columns */
