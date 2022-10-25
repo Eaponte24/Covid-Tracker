@@ -1,5 +1,6 @@
 var searchBtn = document.querySelector("#searchBtn");
 var searchForm = $('#search');
+var tableBody = document.getElementById('repo-table');
 
 
 function covidStats() {
@@ -27,7 +28,7 @@ function redditList(searchTerm){
    
     var inputValue = $("#search-bar").val();
     var searchTerm = 'covid ' + inputValue;
-    
+
 // reddit API call
 $.ajax(
     "https://www.reddit.com/subreddits/search.json",
@@ -35,9 +36,28 @@ $.ajax(
         data: { q: searchTerm },
         success: function(responseData) {
             if (responseData.data.children.length > 0) {
+                console.log(responseData);
                 console.log('# of results: ' + responseData.data.children.length);
-                $.each(responseData.data.children, function(idx, searchResult) {
-                    console.log("--- Title of Subreddit: " + searchResult.data.title);
+                    $.each(responseData.data.children, function(idx, searchResult) {
+                        for (let i = 0; i < responseData.data.children.length; i++) {
+                            
+                          
+                          
+                        var createTableRow = document.createElement('tr');
+                        var tableData = document.createElement('td');
+                        var link = document.createElement('a');
+
+       
+                        link.textContent = responseData.data.children[i].data.title;
+                        link.href = responseData.data.children[i].data.url;
+
+        
+                        tableData.appendChild(link);
+                        createTableRow.appendChild(tableData);
+                        tableBody.appendChild(createTableRow);
+                        }
+
+                        console.log("--- Title of Subreddit: " + searchResult.data.title);
                 });
             } else {
                 console.log("No subreddits match the search query!");
