@@ -1,24 +1,28 @@
+var searchBtn = document.querySelector("#searchBtn");
+var searchForm = $('#search');
+
 // Covid tracker HISTORY API
-var options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '355da21f74msh0c6c414fadadee4p1fe140jsn8c17d86b7d33',
-		'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02",
+	"method": "GET",
+	"headers": {
+		"X-RapidAPI-Key": "355da21f74msh0c6c414fadadee4p1fe140jsn8c17d86b7d33",
+		"X-RapidAPI-Host": "covid-193.p.rapidapi.com"
 	}
 };
 
-fetch('https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+$.ajax(settings).done(function (response) {
+	console.log(response);
+});
 
 
-    // Reddit Api
+   
     
 
-var inputValue = 'Canada'
-var searchTerm = 'covid' + inputValue;
 
+// reddit API call
 $.ajax(
     "https://www.reddit.com/subreddits/search.json",
     {
@@ -36,5 +40,14 @@ $.ajax(
         error: function() {
             alert("Something didn't work!");
         }
-    }
+    },
 );
+
+searchForm.on('submit', function(event){
+    event.preventDefault();
+    
+    var inputValue = $("#search-bar").val();
+    var searchTerm = 'covid ' + inputValue;
+    
+ console.log(inputValue, searchTerm);
+})
