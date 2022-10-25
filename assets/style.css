@@ -31,3 +31,25 @@
     display: table;
     clear: both;
   }
+
+  input {
+    border: none;
+    outline: none;
+    padding: 0.4em;
+    border-radius: 20px;
+    font-size: 110%;
+    width: 20%;
+}
+  
+  button {
+    margin: 1em;
+    border: none;
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 25px;
+    }
+
+  button:hover {
+    color: white;
+    background: black;
+  }
