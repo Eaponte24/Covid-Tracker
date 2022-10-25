@@ -4,14 +4,24 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  font-weight:bolder ;
+  background-image: url(./image/world-map-banner.jpg);
+  background-size:contain;
 }
 
+.jumbotron h1,
+.jumbotron p {
+  background-color: #ffffff;
+  opacity: 0.6;
+  font-weight:bold;
+  color: black;
+}
 
 
 .col-4,
 .col-8 {
     float: left;
-    border: 1px solid blue;
+    border: 1px solid rgb(84, 177, 223);
     height:100vh;
   }
   
