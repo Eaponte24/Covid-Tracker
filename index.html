@@ -15,13 +15,17 @@
 
 <body>
   <div class="jumbotron">
-    <h1 class="display-4">World Covid Stats</h1>
-    <p class="lead">This is used to find stats about covid news abroad and close!</p>
-    <p class="lead">
-      <input type="text" class="search-bar" placeholder="search">
-      <button><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-      <hr class="my-4">
-    </p>
+     <div class="row">
+        
+        <h1 class="display-4">World Covid Stats</h1>
+        <p class="lead">This is used to find stats about covid news abroad and close!</p>
+        <p class="lead">
+          <form id="search">
+            <input name="search-bar" type="text" class="search-bar" id="search-bar" placeholder="search"/>
+            <button id="searchBtn"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </p>
+    </div>
   </div>
 
   <div class="row">
@@ -33,11 +37,14 @@
       </ul>
     </div>
 
-    <div class="col-8">Country's statistics
-      <h1> Country listed here </h1>
-      <div>population</div>
-      <div>deaths</div>
-    </div>
+    <div class="col-8">
+          
+          <h1 class="country"> Country listed here </h1>
+          <div class="population">Population</div>
+          <div class="deaths">Total deaths</div>
+          <div class="tests">Total Tests</div>
+
+     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
