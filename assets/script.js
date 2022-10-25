@@ -38,27 +38,23 @@ $.ajax(
             if (responseData.data.children.length > 0) {
                 console.log(responseData);
                 console.log('# of results: ' + responseData.data.children.length);
-                    $.each(responseData.data.children, function(idx, searchResult) {
-                        for (let i = 0; i < responseData.data.children.length; i++) {
-                            
-                          
-                          
-                        var createTableRow = document.createElement('tr');
-                        var tableData = document.createElement('td');
-                        var link = document.createElement('a');
 
-       
-                        link.textContent = responseData.data.children[i].data.title;
-                        link.href = responseData.data.children[i].data.url;
+                // For the first 15 results, build a table row and add it to the left bar
+                for (let i = 0; i < 15; i++) {
+                    var createTableRow = document.createElement('tr');
+                    var tableData = document.createElement('td');
+                    var link = document.createElement('a');
 
-        
-                        tableData.appendChild(link);
-                        createTableRow.appendChild(tableData);
-                        tableBody.appendChild(createTableRow);
-                        }
+                    // Build the link from the response
+                    link.textContent = responseData.data.children[i].data.display_name_prefixed;
+                    link.href = "http://reddit.com" + responseData.data.children[i].data.url;
+    
+                    // Nest the html into each other
+                    tableData.appendChild(link);
+                    createTableRow.appendChild(tableData);
+                    tableBody.appendChild(createTableRow);
+                }    
 
-                        console.log("--- Title of Subreddit: " + searchResult.data.title);
-                });
             } else {
                 console.log("No subreddits match the search query!");
             }
