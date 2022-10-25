@@ -2,14 +2,21 @@ var searchBtn = document.querySelector("#searchBtn");
 var searchForm = $('#search');
 var tableBody = document.getElementById('repo-table');
 
+//Grabs the current time and date
+var date = moment().format("YYYY-MM-DD")
+console.log(date);
 
-function covidStats() {
+
+function covidStats(inputValue) {
+
+    var inputValue = $("#search-bar").val();
+    
 
 // Covid tracker HISTORY API
 const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02",
+	"url": "https://covid-193.p.rapidapi.com/history?country=" + inputValue + "&day=" + date + "",
 	"method": "GET",
 	"headers": {
 		"X-RapidAPI-Key": "355da21f74msh0c6c414fadadee4p1fe140jsn8c17d86b7d33",
@@ -18,6 +25,20 @@ const settings = {
 };
 
 $.ajax(settings).done(function (response) {
+    
+     var {country} = response.parameters
+     var {active} = response.response[0].cases
+     var {total} = response.response[0].cases
+     var {recovered} = response.response[0].cases
+     var totalTests = response.response[0].tests.total
+
+    document.querySelector(".country").innerText = country;
+    document.querySelector(".active").innerText = "Total Active Cases: " + active;
+    document.querySelector(".deaths").innerText = "Total Deaths: " + total;
+    document.querySelector(".recovered").innerText = "Total Recovered Cases: " + recovered;
+    document.querySelector(".tests").innerText = "Total Tests Done: " + totalTests;
+
+    console.log(country, active, total, recovered, totalTests);
     console.log(response);
 });
 
@@ -75,6 +96,7 @@ searchForm.on('submit', function(event){
     var searchTerm = 'covid ' + inputValue;
 
     redditList();
+    covidStats();
 
  console.log(inputValue, searchTerm);
 })
