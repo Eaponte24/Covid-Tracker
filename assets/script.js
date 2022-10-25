@@ -1,6 +1,9 @@
 var searchBtn = document.querySelector("#searchBtn");
 var searchForm = $('#search');
 
+
+function covidStats() {
+
 // Covid tracker HISTORY API
 const settings = {
 	"async": true,
@@ -17,11 +20,14 @@ $.ajax(settings).done(function (response) {
 	console.log(response);
 });
 
-
+};
    
     
-
-
+function redditList(searchTerm){
+   
+    var inputValue = $("#search-bar").val();
+    var searchTerm = 'covid ' + inputValue;
+    
 // reddit API call
 $.ajax(
     "https://www.reddit.com/subreddits/search.json",
@@ -43,11 +49,16 @@ $.ajax(
     },
 );
 
+};
+
+
 searchForm.on('submit', function(event){
     event.preventDefault();
     
     var inputValue = $("#search-bar").val();
     var searchTerm = 'covid ' + inputValue;
-    
+
+    redditList();
+
  console.log(inputValue, searchTerm);
 })
