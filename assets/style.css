@@ -54,8 +54,8 @@ body {
   .recovered,
   .tests {
     text-align: center;
-line-height: 3;
-font-size: 25px;
+    line-height: 3;
+    font-size: 25px;
   }
   
   /* Clear floats after the columns */
