@@ -32,14 +32,16 @@ $.ajax(settings).done(function (response) {
      var {recovered} = response.response[0].cases
      var totalTests = response.response[0].tests.total
 
-    document.querySelector(".country").innerText = country;
-    document.querySelector(".active").innerText = "Total Active Cases: " + active;
-    document.querySelector(".deaths").innerText = "Total Deaths: " + total;
-    document.querySelector(".recovered").innerText = "Total Recovered Cases: " + recovered;
-    document.querySelector(".tests").innerText = "Total Tests Done: " + totalTests;
+    document.querySelector(".country").innerText = country.charAt(0).toUpperCase() + country.slice(1);
+    document.querySelector(".active").innerText = "Total Active Cases: " + active.toLocaleString();
+    document.querySelector(".deaths").innerText = "Total Deaths: " + total.toLocaleString();
+    document.querySelector(".recovered").innerText = "Total Recovered Cases: " + recovered.toLocaleString();
+    document.querySelector(".tests").innerText = "Total Tests Done: " + totalTests.toLocaleString();
 
     console.log(country, active, total, recovered, totalTests);
     console.log(response);
+
+   
 });
 
 };
@@ -76,8 +78,10 @@ $.ajax(
                     tableBody.appendChild(createTableRow);
                 }    
 
-            } else {
+            } else { 
+
                 console.log("No subreddits match the search query!");
+                
             }
         },
         error: function() {
@@ -88,6 +92,15 @@ $.ajax(
 
 };
 
+// this is to alert the user when they submit nothing in the search bar that they must enter a valid country
+function checkCountry() {
+    var inputValue = $("#search-bar").val();
+    
+     if (!inputValue) {
+     alert("Please Enter a Valid Country!")
+     location.reload();
+ } 
+}
 
 searchForm.on('submit', function(event){
     event.preventDefault();
@@ -95,8 +108,12 @@ searchForm.on('submit', function(event){
     var inputValue = $("#search-bar").val();
     var searchTerm = 'covid ' + inputValue;
 
+    checkCountry();
     redditList();
     covidStats();
 
+   
  console.log(inputValue, searchTerm);
 })
+
+
