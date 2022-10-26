@@ -76,8 +76,8 @@ $.ajax(
                     tableData.appendChild(link);
                     createTableRow.appendChild(tableData);
                     tableBody.appendChild(createTableRow);
-                }    
-
+                }  
+                
             } else { 
 
                 console.log("No subreddits match the search query!");
@@ -111,9 +111,9 @@ searchForm.on('submit', function(event){
     checkCountry();
     redditList();
     covidStats();
-
-   
+ 
  console.log(inputValue, searchTerm);
+ $('#search').children('input').val('');
 })
 
 
