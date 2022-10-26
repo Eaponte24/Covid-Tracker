@@ -61,7 +61,8 @@ $.ajax(
             if (responseData.data.children.length > 0) {
                 console.log(responseData);
                 console.log('# of results: ' + responseData.data.children.length);
-
+                // Clear the table body inner html when search runs before data is appended to the list
+                tableBody.innerHTML= "";
                 // For the first 15 results, build a table row and add it to the left bar
                 for (let i = 0; i < 15; i++) {
                     var createTableRow = document.createElement('tr');
