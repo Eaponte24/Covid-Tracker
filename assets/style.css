@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&family=Nunito+Sans:wght@600&display=swap');
 
+body {
+  font-family: 'Gemunu Libre', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
+
+}
 
 .jumbotron {
   display: flex;
@@ -22,11 +28,34 @@
   font-size: 200%;
 }
 
-.col-4,
+.col-4
+ {
+    float: left;
+    border-right: 1px solid rgb(13, 13, 13);
+    height:75vh;
+  }
+
 .col-8 {
     float: left;
-    border: 1px solid rgb(84, 177, 223);
-    height:100vh;
+    height:80vh;
+    margin-top: 100px;
+  }
+
+  .country {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    text-decoration: underline;
+  }
+
+  .active,
+  .deaths,
+  .recovered,
+  .tests {
+    text-align: center;
+line-height: 3;
+font-size: 25px;
   }
   
   /* Clear floats after the columns */
@@ -62,7 +91,7 @@
 .col-4
  {
     float: left;
-    border: 1px solid rgb(84, 177, 223);
+    border: 1px solid rgb(13, 13, 13);
     height:50%;
     width: 100%;
     margin-right: 4px;
@@ -70,7 +99,6 @@
   }
   .col-8 {
     float: left;
-    border: 1px solid rgb(84, 177, 223);
     height:100%;
     width: 100%;
 }
