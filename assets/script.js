@@ -10,6 +10,7 @@ console.log(date);
 var searchedCountriesArray =
   JSON.parse(localStorage.getItem("searchHistory")) || [];
 
+// pulls the covids stats from API and appends them to the correct lines
 function covidStats(inputValue) {
   var inputValue = $("#search-bar").val();
 
@@ -53,6 +54,7 @@ function covidStats(inputValue) {
   });
 }
 
+// pull reddit sublinks and applies the links to the table
 function redditList(searchTerm) {
   var inputValue = $("#search-bar").val();
   var searchTerm = "covid " + inputValue;
@@ -93,15 +95,7 @@ function redditList(searchTerm) {
   });
 }
 
-// this is to alert the user when they submit nothing in the search bar that they must enter a valid country
-function checkCountry() {
-  var inputValue = $("#search-bar").val();
 
-  if (!inputValue) {
-    alert("Please Enter a Valid Country!");
-    location.reload();
-  }
-}
 
 searchForm.on("submit", function (event) {
   event.preventDefault();
@@ -109,7 +103,7 @@ searchForm.on("submit", function (event) {
   var inputValue = $("#search-bar").val();
   var searchTerm = "covid " + inputValue;
 
-  checkCountry();
+  
   redditList();
   covidStats();
 

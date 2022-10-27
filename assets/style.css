@@ -24,6 +24,7 @@ body {
   font-weight:bolder ;
   background-image: url(./image/world-map-banner.jpg);
   background-size:contain;
+  border-bottom: 5px solid black;
 }
 
 .jumbotron h1,
@@ -35,29 +36,44 @@ body {
 
 }
 
+.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.5em;
+  border-radius: 20px;
+  font-size: 100%;
+  width: 20%;
+
+}
+
+.search-bar:hover {
+  cursor: pointer;
+}
+
 .reddit-h {
   text-align: center;
-  font-size: 150%;
+  font-size: 120%;
   color: var(--white);
   background-color: var(--raisin);
   margin: 0;
-  
+  box-shadow: 2px 2px 4px #000000;
  
 }
 
 .col-4
  {
     float: left;
-    border-right: 1px solid var(--white);
-    height:76vh;
+    border-right: 1px solid black;
+    height:765px;
     background-color: var(--white);
   }
 
 .col-8 {
     float: left;
-    height:50vh;
+    height: 450px;
     margin-top: 100px;
     background-color: var(--cadet);
+    box-shadow: 3px 3px 10px #000000;
     
   }
 
@@ -67,6 +83,7 @@ body {
     font-family: 'Gemunu Libre', sans-serif;
     font-family: 'Nunito Sans', sans-serif;
     text-decoration: underline;
+    text-shadow: 2px 2px 4px #000000;
   }
 
   .active,
@@ -87,14 +104,6 @@ body {
     
   }
 
-  input {
-    border: none;
-    outline: none;
-    padding: 0.5em;
-    border-radius: 20px;
-    font-size: 110%;
-    width: 20%;
-}
   
   button {
     margin: 1em;
@@ -110,11 +119,6 @@ body {
   }
 
   
-
-  
-
-  
-
 
   @media screen and (max-width: 1000px) {
 .col-4
