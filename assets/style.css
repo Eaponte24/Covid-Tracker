@@ -39,6 +39,9 @@ body {
   text-align: center;
   font-size: 150%;
   color: var(--white);
+  background-color: var(--raisin);
+  margin: 0;
+  
  
 }
 
@@ -47,7 +50,7 @@ body {
     float: left;
     border-right: 1px solid var(--white);
     height:76vh;
-    background-color: var(--raisin);
+    background-color: var(--white);
   }
 
 .col-8 {
