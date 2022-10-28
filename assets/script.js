@@ -95,15 +95,12 @@ function redditList(searchTerm) {
   });
 }
 
-
-
 searchForm.on("submit", function (event) {
   event.preventDefault();
 
   var inputValue = $("#search-bar").val();
   var searchTerm = "covid " + inputValue;
 
-  
   redditList();
   covidStats();
 
@@ -111,7 +108,4 @@ searchForm.on("submit", function (event) {
   // push Country inputValue to the SearchedCountriesArray
   searchedCountriesArray.push(inputValue);
   localStorage.setItem("searchHistory", JSON.stringify(searchedCountriesArray));
-
-  //Clear the search input after submit
-  $("#search").children("input").val("");
 });
