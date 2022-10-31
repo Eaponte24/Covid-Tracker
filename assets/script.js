@@ -82,7 +82,9 @@ function redditList(searchTerm) {
             "http://reddit.com" + subredditName;
 
             // Profanity Filter
-            if(subredditName.includes("Porn", "titties", "Circlejerk")) continue;
+            if(subredditName.includes("Porn")) continue;
+            if(subredditName.includes("titties")) continue;
+            if(subredditName.includes("Circlejerk")) continue;
             console.log(subredditName)
 
           // Nest the html into each other
