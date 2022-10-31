@@ -70,6 +70,7 @@ function redditList(searchTerm) {
         tableBody.innerHTML = "";
         // For the first 15 results, build a table row and add it to the left bar
         for (let i = 0; i < 15; i++) {
+          var subredditName = responseData.data.children[i].data.url
           var createTableRow = document.createElement("tr");
           var tableData = document.createElement("td");
           var link = document.createElement("a");
@@ -78,7 +79,11 @@ function redditList(searchTerm) {
           link.textContent =
             responseData.data.children[i].data.display_name_prefixed;
           link.href =
-            "http://reddit.com" + responseData.data.children[i].data.url;
+            "http://reddit.com" + subredditName;
+
+            // Profanity Filter
+            if(subredditName.includes("Porn", "titties", "Circlejerk")) continue;
+            console.log(subredditName)
 
           // Nest the html into each other
           tableData.appendChild(link);
