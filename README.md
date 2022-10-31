@@ -6,8 +6,9 @@ Covid Tracker uses two third party APIs to search for data based on a selected C
 
 <!-- Deployed weblink-->
 
-The Whats Up Weather webpage can be accessed at the following URL...
+The Covid Tracker webpage can be accessed at the following URL...
 
+https://eaponte24.github.io/Covid-Tracker/
 
 
 The URL of the GitHub repository ...
@@ -51,7 +52,7 @@ For help with this webpage please contact
 |-----------|---------------------------|
 |Lynn Sadler| lynnadelesadler@yahoo.com |
 |Ricky Aponte|Rickyapontephotography@gmail.com |
-|John Ifert| TBD |
+|John Ifert| john.ifert.miller@gmail.com |
 
 ## Roadmap
 Check back to this page as enhancements could be made for usability and optimized display.
