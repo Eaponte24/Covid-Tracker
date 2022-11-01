@@ -3,8 +3,10 @@ var searchForm = $("#search");
 var tableBody = document.getElementById("repo-table");
 
 //Grabs the current time and date
-var date = moment().format("YYYY-MM-DD");
+var date = moment().subtract(1, 'days').format("YYYY-MM-DD");
+
 console.log(date);
+
 
 // Var for SearchedCountries to save in Array. Load Search history in local storage with search history or show empty
 var searchedCountriesArray =
@@ -32,6 +34,7 @@ function covidStats(inputValue) {
   };
 
   $.ajax(settings).done(function (response) {
+    console.log(response);
     var { country } = response.parameters;
     var { active } = response.response[0].cases;
     var { total } = response.response[0].cases;
@@ -82,10 +85,10 @@ function redditList(searchTerm) {
             "http://reddit.com" + subredditName;
 
             // Profanity Filter
-            if(subredditName.includes("Porn")) continue;
-            if(subredditName.includes("titties")) continue;
-            if(subredditName.includes("Circlejerk")) continue;
-            console.log(subredditName)
+             if(subredditName.includes("Porn")) continue;
+             if(subredditName.includes("titties")) continue;
+             if(subredditName.includes("Circlejerk")) continue;
+             console.log(subredditName)
 
           // Nest the html into each other
           tableData.appendChild(link);
