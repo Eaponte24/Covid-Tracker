@@ -81,6 +81,7 @@ function redditList(searchTerm) {
           link.href =
             "http://reddit.com" + subredditName;
 
+           
             // Profanity Filter
             if(subredditName.includes("Porn")) continue;
             if(subredditName.includes("titties")) continue;
@@ -91,13 +92,15 @@ function redditList(searchTerm) {
           tableData.appendChild(link);
           createTableRow.appendChild(tableData);
           tableBody.appendChild(createTableRow);
+
+          
         }
       } else {
         console.log("No subreddits match the search query!");
       }
     },
     error: function () {
-      alert("Something didn't work!");
+      console.log("Something didn't work!");
     },
   });
 }
@@ -110,7 +113,7 @@ searchForm.on("submit", function (event) {
 
   redditList();
   covidStats();
-
+  
   console.log(inputValue, searchTerm);
   // push Country inputValue to the SearchedCountriesArray
   searchedCountriesArray.push(inputValue);
