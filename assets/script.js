@@ -3,7 +3,7 @@ var searchForm = $("#search");
 var tableBody = document.getElementById("repo-table");
 
 //Grabs the current time and date
-var date = moment().subtract(1, 'days').format("YYYY-MM-DD");
+var date = moment().subtract(2, 'days').format("YYYY-MM-DD");
 
 console.log(date);
 
