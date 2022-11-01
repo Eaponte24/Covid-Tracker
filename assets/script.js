@@ -119,3 +119,13 @@ searchForm.on("submit", function (event) {
   searchedCountriesArray.push(inputValue);
   localStorage.setItem("searchHistory", JSON.stringify(searchedCountriesArray));
 });
+
+var link = document.querySelectorAll('tbody');
+for(var i = 0; i < link.length; i++) {
+    link[i].addEventListener('click', openNewTab, false);
+}
+
+function openNewTab(event) {
+  event.preventDefault();
+   window.open(event.target.href);
+};
